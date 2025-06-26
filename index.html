@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Wingo 30s Prediction</title>
+  <style>
+    body {
+      font-family: Arial;
+      text-align: center;
+      padding: 40px;
+    }
+    input, button {
+      font-size: 18px;
+      padding: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2>Wingo 30s Game Prediction</h2>
+  <p>Enter Period Number:</p>
+  <input type="number" id="periodInput" placeholder="e.g. 123456">
+  <br><br>
+  <button onclick="predict()">Predict</button>
+  <div id="result"></div>
+
+  <script>
+    function predict() {
+      const period = document.getElementById("periodInput").value;
+      if (!period) {
+        alert("Please enter a period number.");
+        return;
+      }
+
+      // Simple AI logic (dummy for now)
+      const lastDigit = parseInt(period.slice(-1));
+      const number = (lastDigit * 7) % 10;
+      const bigSmall = number >= 5 ? "Big" : "Small";
+
+      document.getElementById("result").innerHTML =
+        `Prediction for Period ${period}: <br><br> 🔢 Number: ${number} <br> 🔴 Type: ${bigSmall}`;
+    }
+  </script>
+</body>
+  </html>
