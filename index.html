@@ -1,4 +1,9 @@
-<script>
+<h2>66Lottery Wingo Prediction</h2>
+<p>Enter Period Number:</p>
+<input type="text" id="periodInput" placeholder="e.g. 2025062701012">
+<br><br>
+<button onclick="predict()">Predict</button>
+<div id="result" style="margin-top: 20px; font-size: 20px;"></div><script>
 async function predict() {
   const response = await fetch('data.json');
   if (!response.ok) {
