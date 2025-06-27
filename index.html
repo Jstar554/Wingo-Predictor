@@ -1,3 +1,27 @@
+<script>
+async function predict() {
+  const response = await fetch('data.json');
+  if (!response.ok) {
+    document.getElementById('result').innerHTML = '❌ data.json फ़ाइल पढ़ने में त्रुटि';
+    return;
+  }
+
+  const data = await response.json();
+  const period = document.getElementById('periodInput').value.trim();
+
+  if (!period || !data[period]) {
+    document.getElementById('result').innerHTML = `❌ Period ${period} का डेटा नहीं मिला`;
+    return;
+  }
+
+  const result = data[period];
+  document.getElementById('result').innerHTML = `
+    ✅ Prediction for Period <b>${period}</b>:<br><br>
+    🔢 Number: <b>${result.number}</b><br>
+    🔵 Type: <b>${result.type}</b>
+  `;
+}
+    </script>
 <!DOCTYPE html>
 <html>
 <head>
